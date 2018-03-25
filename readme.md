@@ -15,13 +15,13 @@
 ```js
 const sha = require('sha-regex');
 
-sha().test('nodejsrocks 	84de6753b298abd027fcd1d790eade2413eafb5a');
+sha().test('nodejsrocks 84de6753b298abd027fcd1d790eade2413eafb5a');
 //=> true
 
 sha({exact: true}).test('nodejsrocks 	84de6753b298abd027fcd1d790eade2413eafb5a foo');
 //=> false
 
-sha({exact: true}).test('	84de6753b298abd027fcd1d790eade2413eafb5a');
+sha({exact: true}).test('84de6753b298abd027fcd1d790eade2413eafb5a');
 //=> true
 
 sha.version(256, {exact: true}).test('c6cb50e7eea0df1fd3eaf52ada2358f5423afd7c0b5ee2395231a9b3208ffcaf');
