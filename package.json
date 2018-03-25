@@ -1,0 +1,29 @@
+{
+  "name": "sha-regex",
+  "version": "1.0.0",
+  "description": "Regular expression for matching SHA hash encoded strings.",
+  "license": "MIT",
+  "repository": "k4m4/sha-regex",
+  "author": {
+    "name": "Nikolaos Kamarinakis",
+    "url": "nikolaskama.me",
+    "email": "nikolaskam@gmail.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "keywords": [
+    "sha",
+    "regex"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "devDependencies": {
+    "ava": "*"
+  }
+}
