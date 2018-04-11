@@ -11,8 +11,8 @@ const shaRegExps = {
 function buildRegExp(bodyExp, opts) {
 	let beginning = `\\b(?:`, end = `)\\b`
 	if (opts && opts.exact) {
-		beginning = `^`
-		end = `$`
+		beginning = `^(`
+		end = `)$`
 	}
 	const regExp = beginning + bodyExp + end
 	if (opts && opts.exact) {
