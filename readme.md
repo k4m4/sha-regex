@@ -1,6 +1,6 @@
 # sha-regex [![Build Status](https://travis-ci.org/k4m4/sha-regex.svg?branch=master)](https://travis-ci.org/k4m4/sha-regex)
 
-> Regular expression for matching SHA hash encoded strings.
+> Regular expression for matching SHA hashes in strings.
 
 
 ## Install

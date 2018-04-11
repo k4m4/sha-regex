@@ -1,7 +1,7 @@
 {
   "name": "sha-regex",
   "version": "1.0.1",
-  "description": "Regular expression for matching SHA hash encoded strings.",
+  "description": "Regular expression for matching SHA hashes in strings.",
   "license": "MIT",
   "repository": "k4m4/sha-regex",
   "author": {
