@@ -1,6 +1,6 @@
 {
   "name": "sha-regex",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Regular expression for matching SHA hashes in strings.",
   "license": "MIT",
   "repository": "k4m4/sha-regex",
