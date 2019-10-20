@@ -24,25 +24,25 @@ test('sha', t => {
 })
 
 test('sha version', t => {
-  for (const v in hashes) {
-  	t.true(m.version(v, {exact: true}).test(hashes[v]))
-  	t.is((m.version(v).exec(`foo ${hashes[v]} bar`))[0], hashes[v])
-		for (const notHash of notHashes) {
-			t.false((m.version(v).test(notHash)))
-		}
-  }
+	for (const v in hashes) {
+		t.true(m.version(v, {exact: true}).test(hashes[v]))
+		t.is((m.version(v).exec(`foo ${hashes[v]} bar`))[0], hashes[v])
+			for (const notHash of notHashes) {
+				t.false((m.version(v).test(notHash)))
+			}
+	}
 })
 
 test('sha version mismatch', t => {
-  t.false(m.version(224, {exact: true}).test(hashes[1]))
-  t.false(m.version(1, {exact: true}).test(hashes[224]))
+	t.false(m.version(224, {exact: true}).test(hashes[1]))
+	t.false(m.version(1, {exact: true}).test(hashes[224]))
 
-  t.throws(() => {
-    m.version(1337)
-  })
+	t.throws(() => {
+		m.version(1337)
+	})
 })
 
 test('sha with spaces', t => {
-  t.false(m.version(384, {exact: true}).test(hashes[384] + '  '))
-  t.false(m({exact: true}).test('   ' + hashes[386]))
+	t.false(m.version(384, {exact: true}).test(hashes[384] + '  '))
+	t.false(m({exact: true}).test('   ' + hashes[386]))
 })
