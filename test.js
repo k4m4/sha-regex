@@ -1,5 +1,5 @@
-import test from 'ava';
-import m from './';
+import test from 'ava'
+import m from '.'
 
 const hashes = {
 	1:   '84de6753b298abd027fcd1d790eade2413eafb5a',

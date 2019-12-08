@@ -5,10 +5,10 @@ const shaRegExps = {
 	224: '[a-f0-9]{56}',
 	256: '[a-f0-9]{64}',
 	384: '[a-f0-9]{96}',
-	512: '[a-f0-9]{128}',
+	512: '[a-f0-9]{128}'
 }
 
-function buildRegExp(bodyExp, opts) {
+const buildRegExp = (bodyExp, opts) => {
 	let beginning = `\\b(?:`, end = `)\\b`
 	if (opts && opts.exact) {
 		beginning = `^(`
@@ -21,7 +21,7 @@ function buildRegExp(bodyExp, opts) {
 	return new RegExp(regExp, 'g')
 }
 
-const sha = (opts) => {
+const sha = opts => {
 	let individualRegExps = []
 	for (let version in shaRegExps) {
 		let oneRegExp = '(?:' + shaRegExps[version] + `)`
