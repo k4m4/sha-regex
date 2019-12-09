@@ -2,7 +2,7 @@ import test from 'ava'
 import m from '.'
 
 const hashes = {
-	1:   '84de6753b298abd027fcd1d790eade2413eafb5a',
+	1: '84de6753b298abd027fcd1d790eade2413eafb5a',
 	224: '983d515094574856a57db3a13741f0a65509bb640bfa551e78fa01d9',
 	256: 'c6cb50e7eea0df1fd3eaf52ada2358f5423afd7c0b5ee2395231a9b3208ffcaf',
 	384: 'de41efa2be0844783ea107630a79246fb1f7b3ab97b35c5e4b70130804f876f64b645c1064a775507a7ac3be457539f2',
@@ -18,6 +18,7 @@ test('sha', t => {
 		t.true(m({exact: true}).test(hashes[x]))
 		t.is((m().exec(`foo ${hashes[x]} bar`))[0], hashes[x])
 	}
+
 	for (const x of notHashes) {
 		t.false(m({exact: true}).test(x))
 	}
@@ -27,9 +28,9 @@ test('sha version', t => {
 	for (const v in hashes) {
 		t.true(m.version(v, {exact: true}).test(hashes[v]))
 		t.is((m.version(v).exec(`foo ${hashes[v]} bar`))[0], hashes[v])
-			for (const notHash of notHashes) {
-				t.false((m.version(v).test(notHash)))
-			}
+		for (const notHash of notHashes) {
+			t.false((m.version(v).test(notHash)))
+		}
 	}
 })
 

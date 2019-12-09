@@ -1,7 +1,7 @@
 'use strict'
 
 const shaRegExps = {
-	1  : '[a-f0-9]{40}',
+	1: '[a-f0-9]{40}',
 	224: '[a-f0-9]{56}',
 	256: '[a-f0-9]{64}',
 	384: '[a-f0-9]{96}',
@@ -9,25 +9,29 @@ const shaRegExps = {
 }
 
 const buildRegExp = (bodyExp, opts) => {
-	let beginning = `\\b(?:`, end = `)\\b`
+	let beginning = '\\b(?:'
+	let end = ')\\b'
 	if (opts && opts.exact) {
-		beginning = `^(`
-		end = `)$`
+		beginning = '^('
+		end = ')$'
 	}
+
 	const regExp = beginning + bodyExp + end
 	if (opts && opts.exact) {
 		return new RegExp(regExp)
 	}
+
 	return new RegExp(regExp, 'g')
 }
 
 const sha = opts => {
-	let individualRegExps = []
-	for (let version in shaRegExps) {
-		let oneRegExp = '(?:' + shaRegExps[version] + `)`
+	const individualRegExps = []
+	for (const version in shaRegExps) {
+		const oneRegExp = `(?:${shaRegExps[version]})`
 		individualRegExps.push(oneRegExp)
 	}
-	const bodyExp = individualRegExps.join(`|`)
+
+	const bodyExp = individualRegExps.join('|')
 	return buildRegExp(bodyExp, opts)
 }
 
@@ -36,6 +40,7 @@ sha.version = (version, opts) => {
 	if (!bodyExp) {
 		throw new Error('Invalid hash version')
 	}
+
 	return buildRegExp(bodyExp, opts)
 }
 
