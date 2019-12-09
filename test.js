@@ -37,10 +37,10 @@ test('sha version', t => {
 test('sha version mismatch', t => {
 	t.false(m.version(224, {exact: true}).test(hashes[1]))
 	t.false(m.version(1, {exact: true}).test(hashes[224]))
-
-	t.throws(() => {
+	const error = t.throws(() => {
 		m.version(1337)
 	})
+	t.is(error.message, 'Invalid hash version')
 })
 
 test('sha with spaces', t => {
