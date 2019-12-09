@@ -14,7 +14,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && ava && tsd"
   },
   "xo": {
     "semicolon": false,
@@ -27,10 +27,12 @@
     "regex"
   ],
   "files": [
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "devDependencies": {
     "ava": "^1.2.1",
+    "tsd": "^0.11.0",
     "xo": "^0.25.3"
   }
 }
