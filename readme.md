@@ -41,7 +41,11 @@ sha.version(512, {exact: true}).test('84de6753b298abd027fcd1d790eade2413eafb5a')
 
 Returns a regex for matching SHA hashes.
 
-#### options.exact
+#### options
+
+Type: `Object`
+
+##### exact
 
 Type: `boolean`<br>
 Default: `false` *(Matches any SHA hash in a string)*
@@ -49,7 +53,7 @@ Default: `false` *(Matches any SHA hash in a string)*
 Only match an exact string. Useful with `RegExp#test()` to check if a string is a SHA hash.
 
 
-### sha.version([version], [options])
+### sha.version(version, [options])
 
 Returns a regex for matching specific SHA version hashes.
 
@@ -60,7 +64,11 @@ Supported Versions: `1`, `224`, `256`, `384`, `512`
 
 Match a specific version of SHA.
 
-#### options.exact
+#### options
+
+Type: `Object`
+
+##### exact
 
 Type: `boolean`<br>
 Default: `false` *(Matches any SHA hash in a string)*
