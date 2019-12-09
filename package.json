@@ -14,7 +14,13 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "xo && ava"
+  },
+  "xo": {
+    "semicolon": false,
+    "rules": {
+      "guard-for-in": 0
+    }
   },
   "keywords": [
     "sha",
@@ -24,6 +30,7 @@
     "index.js"
   ],
   "devDependencies": {
-    "ava": "^1.2.1"
+    "ava": "^1.2.1",
+    "xo": "^0.25.3"
   }
 }
