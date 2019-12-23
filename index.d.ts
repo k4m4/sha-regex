@@ -5,36 +5,36 @@ declare namespace sha {
 		@default false
 		*/
 		readonly exact?: boolean;
-    }
-    /**
-    Available SHA versions.
-    @default 1
-    */
-    type Version = 1 | 224 | 256 | 384 | 512;
+	}
+	/**
+	Available SHA versions.
+	@default 1
+	*/
+	type Version = 1 | 224 | 256 | 384 | 512;
 }
 
 declare const sha: {
-    /**
+	/**
 	Returns a regex for matching SHA hashes.
 	@example
 	```
 	import sha = require('sha-regex')
 	sha().test('nodejsrocks 84de6753b298abd027fcd1d790eade2413eafb5a')
-    //=> true
+	//=> true
 	```
 	*/
-    (options?: sha.Options): RegExp;
+	(options?: sha.Options): RegExp;
 
-    /**
+	/**
 	Returns a regex for matching specific SHA version hashes.
 	@example
 	```
 	import sha = require('sha-regex')
 	sha.version(256, {exact: true}).test('c6cb50e7eea0df1fd3eaf52ada2358f5423afd7c0b5ee2395231a9b3208ffcaf')
-    //=> true
+	//=> true
 	```
 	*/
-    version(version: sha.Version, options?: sha.Options): RegExp;
+	version(version: sha.Version, options?: sha.Options): RegExp;
 }
 
 export = sha;
