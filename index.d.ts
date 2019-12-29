@@ -8,7 +8,6 @@ declare namespace sha {
 	}
 	/**
 	Available SHA versions.
-	@default 1
 	*/
 	type Version = 1 | 224 | 256 | 384 | 512;
 }
