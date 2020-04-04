@@ -20,7 +20,8 @@
     "semicolon": false,
     "rules": {
       "guard-for-in": 0
-    }
+    },
+    "babel": true
   },
   "keywords": [
     "sha",
@@ -31,6 +32,7 @@
     "index.d.ts"
   ],
   "devDependencies": {
+    "@ava/babel": "^1.0.1",
     "ava": "^2.4.0",
     "tsd": "^0.11.0",
     "xo": "^0.25.3"
