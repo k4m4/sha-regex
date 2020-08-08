@@ -8,23 +8,23 @@ const shaRegExps = {
 	512: '[a-f0-9]{128}'
 }
 
-const buildRegExp = (bodyExp, opts) => {
+const buildRegExp = (bodyExp, options) => {
 	let beginning = '\\b(?:'
 	let end = ')\\b'
-	if (opts && opts.exact) {
+	if (options && options.exact) {
 		beginning = '^('
 		end = ')$'
 	}
 
 	const regExp = beginning + bodyExp + end
-	if (opts && opts.exact) {
+	if (options && options.exact) {
 		return new RegExp(regExp)
 	}
 
 	return new RegExp(regExp, 'g')
 }
 
-const sha = opts => {
+const sha = options => {
 	const individualRegExps = []
 	for (const version in shaRegExps) {
 		const oneRegExp = `(?:${shaRegExps[version]})`
@@ -32,16 +32,16 @@ const sha = opts => {
 	}
 
 	const bodyExp = individualRegExps.join('|')
-	return buildRegExp(bodyExp, opts)
+	return buildRegExp(bodyExp, options)
 }
 
-sha.version = (version, opts) => {
+sha.version = (version, options) => {
 	const bodyExp = shaRegExps[version]
 	if (!bodyExp) {
 		throw new Error('Invalid hash version')
 	}
 
-	return buildRegExp(bodyExp, opts)
+	return buildRegExp(bodyExp, options)
 }
 
 module.exports = sha

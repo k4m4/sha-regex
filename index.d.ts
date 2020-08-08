@@ -9,10 +9,21 @@ declare namespace sha {
 	/**
 	Available SHA versions.
 	*/
-	type Version = 1 | 224 | 256 | 384 | 512;
+	type Version = 1 | 224 | 256 | 384 | 512
 }
 
 declare const sha: {
+	/**
+	Returns a regex for matching specific SHA version hashes.
+	@example
+	```
+	import sha = require('sha-regex')
+	sha.version(256, {exact: true}).test('c6cb50e7eea0df1fd3eaf52ada2358f5423afd7c0b5ee2395231a9b3208ffcaf')
+	//=> true
+	```
+	*/
+	version: (version: sha.Version, options?: sha.Options) => RegExp;
+
 	/**
 	Returns a regex for matching SHA hashes.
 	@example
@@ -23,17 +34,6 @@ declare const sha: {
 	```
 	*/
 	(options?: sha.Options): RegExp;
-
-	/**
-	Returns a regex for matching specific SHA version hashes.
-	@example
-	```
-	import sha = require('sha-regex')
-	sha.version(256, {exact: true}).test('c6cb50e7eea0df1fd3eaf52ada2358f5423afd7c0b5ee2395231a9b3208ffcaf')
-	//=> true
-	```
-	*/
-	version(version: sha.Version, options?: sha.Options): RegExp;
 }
 
-export = sha;
+export = sha
